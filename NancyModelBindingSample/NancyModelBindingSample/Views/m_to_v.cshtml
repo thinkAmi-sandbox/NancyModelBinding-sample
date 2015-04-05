@@ -1,0 +1,66 @@
+@inherits Nancy.ViewEngines.Razor.NancyRazorViewBase<NancyModelBindingSample.HomeModel>
+
+@using Nancy.ViewEngines.Razor;
+
+<!DOCTYPE HTML>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+    <body>
+        <form method="post" action="/mtov">
+            <fieldset>
+                <div>
+                    <label for="Text">Text:</label>
+                    <input type="text" name="Text" value="@Model.Text" />
+                </div>
+
+                <div>
+                    <label for="TextArea">TextArea:</label>
+                    <textarea name="TextArea">@Model.TextArea</textarea>
+                </div>
+
+                <div>
+                    <label for="Tel">Tel:</label>
+                    <input type="tel" name="Tel" value="@Model.Tel" />
+                </div>
+
+                <div>
+                    <label for="Url">Url:</label>
+                    <input type="url" name="Url" value="@Model.Url" />
+                </div>
+
+                <div>
+                    <label for="Email">Email:</label>
+                    <input type="email" name="Email" value="@Model.Email" />
+                </div>
+
+                <div>
+                    <label for="Date">Date:</label>
+                    <input type="date" name="Date" value="@string.Format(" {0:yyyy-mm-dd}", @Model.Date)" />
+                </div>
+
+                <div>
+                    <label for="RememberMe">Checkbox:</label>
+                    <input type="checkbox" name="Checkbox" checked="@Model.Checkbox" />
+                </div>
+
+                <div>
+                    <label for="Status">RadioButtonValue:</label>
+                    <label for="radio_good">Good</label>
+                    <input type="radio" name="RadioButtonValue" value="good" id="radio_good" checked="@Model.IsGood" />
+                    <label for="rad_normal">Normal</label>
+                    <input type="radio" name="RadioButtonValue" value="normal" id="rad_normal" checked="@Model.IsNormal" />
+                    <label for="rad_bad">Bad</label>
+                    <input type="radio" name="RadioButtonValue" value="bad" id="rad_bad" checked="@Model.IsBad" />
+                </div>
+
+                <div>
+                    <button type="submit">Submit</button>
+                </div>
+            </fieldset>
+        </form>
+    </body>
+</html>
